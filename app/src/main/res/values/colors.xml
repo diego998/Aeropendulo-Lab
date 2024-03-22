@@ -2,4 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#90B0DC</color>
+    <color name="primaryDark">#3F84E3</color>
+    <color name="secondary">#000052</color>
+    <color name="accent">#9EA2D6</color>
+    <color name="gold">#ffe78f</color>
+    <color name="black_alfha">#99000000</color>
+
+    <color name="red">#FF0000</color>
+
 </resources>

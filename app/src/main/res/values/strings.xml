@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Aeropendulo-Lab</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--BottomBar-->
+    <string name="settings">Ajustes</string>
+    <string name="experiment">Experimento</string>
+    <string name="reports">Reportes</string>
 </resources>
