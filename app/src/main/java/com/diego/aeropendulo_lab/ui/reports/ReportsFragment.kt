@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.diego.aeropendulo_lab.databinding.FragmentReportsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ReportsFragment : Fragment() {
 
     private var _binding: FragmentReportsBinding? = null

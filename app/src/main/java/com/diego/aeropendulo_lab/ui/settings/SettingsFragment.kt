@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.diego.aeropendulo_lab.R
 import com.diego.aeropendulo_lab.databinding.FragmentSettingsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
