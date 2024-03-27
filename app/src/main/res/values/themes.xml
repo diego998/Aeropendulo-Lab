@@ -9,4 +9,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="BottomNavigationViewStyle">
+        <item name="android:textSize">60sp</item> <!-- Tamaño de texto personalizado -->
+    </style>
 </resources>

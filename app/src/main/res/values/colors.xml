@@ -10,6 +10,18 @@
     <color name="gold">#ffe78f</color>
     <color name="black_alfha">#99000000</color>
 
+    <color name="background_component">#23426E</color>
+    <color name="background_component_selected">#0E213A</color>
+
+
     <color name="red">#FF0000</color>
+
+
+    <color name="text_primario">#FFFFFF</color>
+    <color name="text_secundario">#FFFCFC</color>
+
+    <color name="botones">#FFFFFF</color>
+
+
 
 </resources>

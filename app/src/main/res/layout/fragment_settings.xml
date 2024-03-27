@@ -8,47 +8,8 @@
     android:background="@color/primary"
     tools:context=".ui.settings.SettingsFragment">
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSettings"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_experiment"/>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:text="titulo"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="11sp"
-                android:textColor="@color/black"
-                android:text="descripcion"/>
-
-        </LinearLayout>
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/switchBottom"
-            android:layout_width="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginVertical="8dp"
-        app:dividerColor="@color/primaryDark"/>
+        android:layout_height="match_parent"/>
 </LinearLayout>

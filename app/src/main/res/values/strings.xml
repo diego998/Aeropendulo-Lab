@@ -6,4 +6,28 @@
     <string name="settings">Ajustes</string>
     <string name="experiment">Experimento</string>
     <string name="reports">Reportes</string>
+
+    <!--Informacion del Home-->
+    <string name="info1">info1</string>
+    <string name="info2">info2</string>
+    <string name="info3">info3</string>
+
+    <!--Informacion de experimento-->
+    <string name="remote_supervisor">Supervisor remoto</string>
+    <string name="reference_signal">Señal de referencia</string>
+    <string name="experiment_time">Tiempo de experimento</string>
+    <string name="defect_experiment_time">60 seg</string>
+    <string name="sampling_time">Tiempo de muestreo</string>
+    <string name="open_loop">Lazo abierto</string>
+    <string name="closed_loop">Lazo cerrado</string>
+    <string name="control_strategy">Estrategia de control</string>
+    <string name="proportional_gain">Kp</string>
+    <string name="integral_gain">Ki</string>
+    <string name="derivative_gain">Kd</string>
+    <string name="start_experiment">Empezar experimento</string>
+    <string name="save_settings">Guardar configuración</string>
+    <string name="load_settings">Cargar configuración</string>
+    <string name="experiment_name">Nombre del experimento</string>
+
+
 </resources>

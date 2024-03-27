@@ -1,22 +1,18 @@
-package com.diego.aeropendulo_lab.ui.experiment
+package com.diego.aeropendulo_lab.ui.experimentRemote
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.diego.aeropendulo_lab.R
-import com.diego.aeropendulo_lab.databinding.FragmentExperimentBinding
+import com.diego.aeropendulo_lab.databinding.FragmentExperimentLocalBinding
+import com.diego.aeropendulo_lab.databinding.FragmentExperimentRemoteBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ExperimentFragment : Fragment() {
-
-
-    private var _binding: FragmentExperimentBinding? = null
+class ExperimentRemoteFragment : Fragment() {
+    private var _binding: FragmentExperimentRemoteBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,7 +20,8 @@ class ExperimentFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentExperimentBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentExperimentRemoteBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
+
 }
