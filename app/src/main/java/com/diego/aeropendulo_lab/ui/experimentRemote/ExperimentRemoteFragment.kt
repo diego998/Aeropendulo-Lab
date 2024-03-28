@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.diego.aeropendulo_lab.R
 import com.diego.aeropendulo_lab.databinding.FragmentExperimentLocalBinding
 import com.diego.aeropendulo_lab.databinding.FragmentExperimentRemoteBinding
+import com.diego.aeropendulo_lab.ui.experiment.ExperimentFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,7 +23,7 @@ class ExperimentRemoteFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentExperimentRemoteBinding.inflate(layoutInflater, container, false)
-        return binding.root
+        val view = binding.root
+        return view
     }
-
 }

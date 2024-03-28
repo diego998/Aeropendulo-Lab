@@ -1,14 +1,317 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
+    android:layout_gravity="center"
     tools:context=".ui.experimentRemote.ExperimentRemoteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Sección Configuración del Experimento -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_experiment_configuration"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        android:elevation="4dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Título de la sección -->
+            <TextView
+                android:id="@+id/text_experiment_configuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/section_experiment_configuration"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:layout_margin="4dp"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <!-- Campo de texto para seleccionar o ingresar el nombre del experimento -->
+            <EditText
+                android:id="@+id/edit_experiment_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:hint="Nombre del experimento"
+                android:inputType="text"
+                android:background="@color/edittext_rounded_background"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Botón para cargar el experimento -->
+            <Button
+                android:id="@+id/button_load_experiment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cargar Experimento"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Sección Parámetros del Experimento -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_experiment_parameters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        android:elevation="4dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:layout_constraintTop_toBottomOf="@+id/card_experiment_configuration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Título de la sección -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/section_experiment_parameters"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:layout_margin="4dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Slider para el tiempo del experimento -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amplitude"
+                android:layout_marginTop="16dp"/>
+
+
+            <SeekBar
+                android:id="@+id/seekbar_experiment_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="50"
+                android:layout_marginTop="16dp"/>
+
+            <!-- Selección entre lazo abierto y lazo cerrado -->
+            <RadioGroup
+                android:id="@+id/radiogroup_control_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <RadioButton
+                    android:id="@+id/radio_open_loop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lazo Abierto"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radio_closed_loop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lazo Cerrado"/>
+
+            </RadioGroup>
+
+            <!-- Slider de valor de referencia -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amplitude"
+                android:layout_marginTop="16dp"/>
+            <SeekBar
+                android:id="@+id/seekbar_reference_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="50"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Sección Configuración de Entrada -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_input_configuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        android:elevation="4dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:layout_constraintTop_toBottomOf="@+id/card_experiment_parameters"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Título de la sección -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/section_input_configuration"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:layout_margin="4dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Selección de entrada constante o senoidal -->
+            <RadioGroup
+                android:id="@+id/radiogroup_input_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <RadioButton
+                    android:id="@+id/radio_constant_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/constant_input"/>
+
+                <RadioButton
+                    android:id="@+id/radio_sine_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sine_input"/>
+
+            </RadioGroup>
+
+            <!-- Opciones para ajustar la amplitud y la frecuencia -->
+            <EditText
+                android:id="@+id/edit_A"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/hint_kp"
+                android:inputType="numberDecimal"/>
+            <EditText
+                android:id="@+id/edit_F"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/hint_kp"
+                android:inputType="numberDecimal"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Sección Estrategia de Control -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_control_strategy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        android:elevation="4dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:layout_constraintTop_toBottomOf="@+id/card_input_configuration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Título de la sección -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/section_control_strategy"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:layout_margin="4dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <!-- Parámetro Kp -->
+            <EditText
+                android:id="@+id/edit_kp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/hint_kp"
+                android:inputType="numberDecimal"/>
+
+            <!-- Parámetro Ti -->
+            <EditText
+                android:id="@+id/edit_ti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/hint_ti"
+                android:inputType="numberDecimal"/>
+
+            <!-- Parámetro Td -->
+            <EditText
+                android:id="@+id/edit_td"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/hint_td"
+                android:inputType="numberDecimal"/>
+
+            <!-- Parámetro Ts -->
+            <EditText
+                android:id="@+id/edit_ts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/hint_ts"
+                android:inputType="numberDecimal"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/start_experiment"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:text="@string/start_experiment"
+        android:textColor="@color/text_primario"
+        android:textAllCaps="true"
+        android:backgroundTint="@color/red"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/card_control_strategy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,440 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/primary"
     tools:context=".ui.experimentLocal.ExperimentLocalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- LinearLayout en la parte superior de las CardViews -->
+    <LinearLayout
+        android:id="@+id/top_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <!-- Contenido de LinearLayout -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textAllCaps="true"
+            android:layout_margin="4dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="@string/section_experiment_configuration">
+        </TextView>
+
+        <!-- Cuadro de texto para agregar un nombre -->
+        <EditText
+            android:id="@+id/et_configuration_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:hint="Nombre del experimento"
+            android:inputType="text"/>
+        <!-- Botón para cargar configuración anterior -->
+        <Button
+            android:id="@+id/btn_load_previous_configuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Cargar configuración"/>
+
+    </LinearLayout>
+
+    <!-- CardView 1 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/card_view_3"
+        app:layout_constraintEnd_toStartOf="@+id/card_view_2"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_linear_layout"
+        app:layout_constraintVertical_weight="1">
+
+        <!-- Contenido de CardView 1 -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_margin="14dp"
+            android:orientation="vertical">
+            <!-- Título de la sección -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:text="@string/section_experiment_parameters"
+                android:layout_marginBottom="16dp">
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Duracion del experimento">
+            </TextView>
+            <TextView
+                android:id="@+id/txtTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gold"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="60 seg"
+                android:layout_marginBottom="16dp">
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Señal de referencia">
+            </TextView>
+            <TextView
+                android:id="@+id/txtRef"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gold"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="90 grados"
+                android:layout_marginBottom="16dp">
+            </TextView>
+            <TextView
+                android:id="@+id/txtLazo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gold"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Lazo cerrado"
+                android:layout_marginBottom="16dp">
+            </TextView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+    <!-- CardView 2 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/card_view_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/card_view_1"
+        app:layout_constraintTop_toBottomOf="@id/top_linear_layout"
+        app:layout_constraintVertical_weight="1">
+
+        <!-- Contenido de CardView 2 -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_margin="14dp"
+            android:orientation="vertical">
+            <!-- Título de la sección -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="@string/section_input_configuration">
+            </TextView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Señal de entrada">
+            </TextView>
+            <TextView
+                android:id="@+id/txtSignal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gold"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Constante"
+                android:layout_marginBottom="16dp">
+            </TextView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primario"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="A">
+                </TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gold"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="1"
+                    android:layout_marginBottom="16dp"
+                    android:id="@+id/txtAmplitud">
+                </TextView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primario"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="F">
+                </TextView>
+                <TextView
+                    android:id="@+id/txtFrecuency"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gold"
+                    android:text="0 Hz"
+                    android:textSize="16sp"
+                    android:gravity="center">
+
+                </TextView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+    <!-- CardView 3 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_button"
+        app:layout_constraintEnd_toStartOf="@+id/card_view_4"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_1"
+        app:layout_constraintVertical_weight="1">
+
+        <!-- Contenido de CardView 3 -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_margin="14dp"
+            android:orientation="vertical">
+
+            <!-- Título de la sección -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:text="@string/section_control_strategy">
+            </TextView>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primario"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="Kp">
+                </TextView>
+                <TextView
+                    android:id="@+id/txtKp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gold"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="1"
+                    android:layout_marginBottom="16dp">
+                </TextView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primario"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="Ti">
+                </TextView>
+                <TextView
+                    android:id="@+id/txtTi"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gold"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="1"
+                    android:layout_marginBottom="16dp">
+                </TextView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primario"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="Td">
+                </TextView>
+                <TextView
+                    android:id="@+id/txtTd"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gold"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="1"
+                    android:layout_marginBottom="16dp">
+                </TextView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primario"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="Ts">
+                </TextView>
+                <TextView
+                    android:id="@+id/txtTs"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gold"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="0.5"
+                    android:layout_marginBottom="16dp">
+                </TextView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+    <!-- CardView 4 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/card_view_3"
+        app:layout_constraintTop_toBottomOf="@id/card_view_2"
+        app:layout_constraintVertical_weight="1">
+
+        <!-- Contenido de CardView 4 -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_margin="14dp"
+            android:orientation="vertical">
+            <!-- Título de la sección -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:layout_margin="4dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:text="@string/section_test">
+            </TextView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+    <!-- Botón en la parte inferior -->
+    <Button
+        android:id="@+id/bottom_button"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textSize="25sp"
+        android:backgroundTint="@color/red"
+        android:text="@string/start_experiment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

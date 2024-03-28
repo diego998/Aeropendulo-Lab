@@ -12,4 +12,32 @@
     <style name="BottomNavigationViewStyle">
         <item name="android:textSize">60sp</item> <!-- Tamaño de texto personalizado -->
     </style>
+
+    <!-- Estilo parametros del controlador-->
+    <style name="ParameterLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_primario</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingEnd">8dp</item> <!-- Opcional: añade un espacio entre el texto y el campo de entrada -->
+    </style>
+    <!-- Estilo edits del controlador-->
+    <style name="ParameterEditText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_secundario</item> <!-- Color del texto secundario -->
+        <item name="android:textSize">16sp</item>
+        <item name="android:ems">8</item>
+        <item name="android:inputType">numberDecimal</item> <!-- Tipo de entrada: número -->
+        <item name="android:background">@color/white</item> <!-- Fondo transparente -->
+        <item name="android:paddingStart">8dp</item> <!-- Opcional: añade un espacio entre el campo de entrada y el borde -->
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
+
+
 </resources>

@@ -6,7 +6,246 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
-    android:layout_gravity="center"
     tools:context=".ui.reports.ReportsFragment">
 
+    <!-- Boton lazo abierto -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewOpen"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/background_component_selected"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/viewClose"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_experiment"
+                app:tint="@color/botones" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:layout_marginTop="8dp"
+                android:text="@string/open_loop"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+    <!-- Boton lazo cerrado -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewClose"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewOpen"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_experiment"
+                app:tint="@color/botones" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:layout_marginTop="8dp"
+                android:text="@string/closed_loop"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+    <!-- Slider tiempo del experimento -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewTime"
+        android:layout_width="0dp"
+        app:cardCornerRadius="16dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewClose">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:text="@string/experiment_time"/>
+            <TextView
+                android:id="@+id/tvTiempo"
+                android:layout_width="wrap_content"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secundario"
+                android:textAllCaps="true"
+                android:text="@string/defect_experiment_time"/>
+
+
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/rsTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stepSize="1"
+                android:valueFrom="0"
+                android:valueTo="300">
+
+            </com.google.android.material.slider.RangeSlider>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewMuestreo"
+        android:layout_width="0dp"
+        app:cardCornerRadius="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:layout_constraintTop_toBottomOf="@+id/viewTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewCosa"
+        android:layout_height="150dp">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:text="@string/experiment_time"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secundario"
+                android:text="@string/defect_experiment_time"/>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnSustraer"
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:backgroundTint="@color/background_component_selected"
+                    android:layout_height="wrap_content"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnSumar"
+                    android:layout_width="wrap_content"
+                    app:backgroundTint="@color/background_component_selected"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewCosa"
+        android:layout_width="0dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:layout_constraintTop_toBottomOf="@+id/viewTime"
+        app:layout_constraintStart_toEndOf="@+id/viewMuestreo"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="150dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primario"
+                android:textAllCaps="true"
+                android:text="@string/experiment_time"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secundario"
+                android:text="@string/defect_experiment_time"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnSustraer2"
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:backgroundTint="@color/background_component_selected"
+                    android:layout_height="wrap_content"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnSumar2"
+                    android:layout_width="wrap_content"
+                    app:backgroundTint="@color/background_component_selected"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <!--Boton empezar experimento -->
+    <Button
+        android:id="@+id/start_experiment"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:text="@string/start_experiment"
+        android:textColor="@color/text_primario"
+        android:textAllCaps="true"
+        android:backgroundTint="@color/red"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/viewCosa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

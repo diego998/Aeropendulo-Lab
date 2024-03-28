@@ -28,6 +28,21 @@
     <string name="save_settings">Guardar configuración</string>
     <string name="load_settings">Cargar configuración</string>
     <string name="experiment_name">Nombre del experimento</string>
+    <string name="section_experiment_configuration">Configuración del Experimento</string>
+    <string name="section_experiment_parameters">Parámetros del Experimento</string>
+    <string name="section_input_configuration">Configuración de Entrada</string>
+    <string name="section_control_strategy">Estrategia de Control</string>
+    <string name="section_test">Pruebas y alarmas</string>
 
+
+    <string name="constant_input">Entrada Constante</string>
+    <string name="sine_input">Entrada Senoidal</string>
+    <string name="amplitude">Amplitud:</string>
+    <string name="frequency">Frecuencia:</string>
+    <string name="hint_kp">Valor de Kp</string>
+    <string name="hint_ti">Valor de Ti</string>
+    <string name="hint_td">Valor de Td</string>
+    <string name="hint_ts">Valor de Ts</string>
+    <string name="sinusoidal_input">Entrada Senoidal</string>
 
 </resources>

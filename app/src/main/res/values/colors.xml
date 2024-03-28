@@ -22,6 +22,6 @@
 
     <color name="botones">#FFFFFF</color>
 
-
+    <color name="edittext_rounded_background">#9E00C3FF</color>
 
 </resources>
