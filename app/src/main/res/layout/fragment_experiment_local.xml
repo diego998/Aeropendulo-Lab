@@ -1,440 +1,490 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:background="@color/primary"
+    android:orientation="vertical"
     tools:context=".ui.experimentLocal.ExperimentLocalFragment">
 
-    <!-- LinearLayout en la parte superior de las CardViews -->
-    <LinearLayout
-        android:id="@+id/top_linear_layout"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!-- Contenido de LinearLayout -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textAllCaps="true"
-            android:layout_margin="4dp"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:text="@string/section_experiment_configuration">
-        </TextView>
-
-        <!-- Cuadro de texto para agregar un nombre -->
-        <EditText
-            android:id="@+id/et_configuration_name"
+        <!-- CardView for Experiment Configuration -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:hint="Nombre del experimento"
-            android:inputType="text"/>
-        <!-- Botón para cargar configuración anterior -->
-        <Button
-            android:id="@+id/btn_load_previous_configuration"
-            android:layout_width="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="@color/gold"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/verticalGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5"/>
+
+                <!-- TITULO TextView Experiment Configuration -->
+                <TextView
+                    android:id="@+id/textViewExperimentConfiguration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextTitleStyleExp"
+                    android:text="@string/section_experiment_configuration"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!-- TextInputEditText Example -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameProject"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/rounded_edittext_background"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewExperimentConfiguration"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:hint="Nombre del experimento"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- MaterialButton ExpLoad -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonExpLoad"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    style="@style/TextSubTitleStyleExp"
+                    android:text="@string/bottom_exp_load"
+                    android:layout_marginEnd="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/nameProject"/>
+
+                <!-- MaterialButton ExpSave -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonExpSave"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="12dp"
+                    style="@style/TextSubTitleStyleExp"
+                    android:text="@string/bottom_exp_save"
+                    app:layout_constraintStart_toEndOf="@+id/verticalGuideline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/buttonExpLoad"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- CardView for Parameters of experiment -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="Cargar configuración"/>
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/gold"
+            app:cardUseCompatPadding="true">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp">
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/verticalGuideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5">
+                </androidx.constraintlayout.widget.Guideline>
+                <!-- TITULO TextView Experiment Parameters -->
+                <TextView
+                    android:id="@+id/textViewExperimentParameters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextTitleStyleExp"
+                    android:text="@string/section_experiment_parameters"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
-    </LinearLayout>
+                <!-- TextView Tiempo -->
+                <TextView
+                    android:id="@+id/textViewTiempo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
 
-    <!-- CardView 1 -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="@color/background_component"
-        app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toTopOf="@id/card_view_3"
-        app:layout_constraintEnd_toStartOf="@+id/card_view_2"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_linear_layout"
-        app:layout_constraintVertical_weight="1">
+                    style="@style/TextSubTitleStyleExp"
+                    android:text="@string/experiment_time"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewExperimentParameters"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2"/>
 
-        <!-- Contenido de CardView 1 -->
-        <androidx.appcompat.widget.LinearLayoutCompat
+                <!-- TextView ValorTiempo -->
+                <TextView
+                    android:id="@+id/textViewValorTiempo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/TextSubTitleStyleExp"
+                    android:gravity="center"
+                    android:text="0 seg"
+                    app:layout_constraintTop_toTopOf="@+id/textViewTiempo"
+                    app:layout_constraintStart_toEndOf="@+id/verticalGuideline2"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!-- RangeSlider Tiempo -->
+                <com.google.android.material.slider.RangeSlider
+                    android:id="@+id/rangeSliderTiempo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/textViewTiempo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- TextView Ref -->
+                <TextView
+                    android:id="@+id/textViewRef"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/TextSubTitleStyleExp"
+                    android:gravity="center"
+                    android:text="@string/reference_signal"
+                    app:layout_constraintTop_toBottomOf="@+id/rangeSliderTiempo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2"/>
+
+                <!-- TextView ValorRef -->
+                <TextView
+                    android:id="@+id/textViewValorRef"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/TextSubTitleStyleExp"
+                    android:gravity="center"
+                    android:text="0 rad"
+                    app:layout_constraintTop_toTopOf="@+id/textViewRef"
+                    app:layout_constraintStart_toEndOf="@+id/verticalGuideline2"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!-- RangeSlider Ref -->
+                <com.google.android.material.slider.RangeSlider
+                    android:id="@+id/rangeSliderRef"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/textViewRef"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- RadioButton Option1 -->
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioButtonOpenLoop"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/TextSubTitleStyleExp"
+                    android:gravity="center"
+                    android:text="@string/open_loop"
+                    app:layout_constraintTop_toBottomOf="@+id/rangeSliderRef"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2"/>
+
+                <!-- RadioButton Option2 -->
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioButtonCloseLoop"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/TextSubTitleStyleExp"
+                    android:gravity="center"
+                    android:text="@string/closed_loop"
+                    app:layout_constraintTop_toBottomOf="@+id/rangeSliderRef"
+                    app:layout_constraintStart_toEndOf="@+id/verticalGuideline2"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- CardView for Parameters of Input -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_margin="14dp"
-            android:orientation="vertical">
-            <!-- Título de la sección -->
-            <TextView
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/gold"
+            app:cardUseCompatPadding="true">
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_primario"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:text="@string/section_experiment_parameters"
-                android:layout_marginBottom="16dp">
-            </TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_primario"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:text="Duracion del experimento">
-            </TextView>
-            <TextView
-                android:id="@+id/txtTime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/gold"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:text="60 seg"
-                android:layout_marginBottom="16dp">
-            </TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_primario"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:text="Señal de referencia">
-            </TextView>
-            <TextView
-                android:id="@+id/txtRef"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/gold"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:text="90 grados"
-                android:layout_marginBottom="16dp">
-            </TextView>
-            <TextView
-                android:id="@+id/txtLazo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/gold"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:text="Lazo cerrado"
-                android:layout_marginBottom="16dp">
-            </TextView>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.cardview.widget.CardView>
-    <!-- CardView 2 -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="@color/background_component"
-        app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toTopOf="@id/card_view_4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/card_view_1"
-        app:layout_constraintTop_toBottomOf="@id/top_linear_layout"
-        app:layout_constraintVertical_weight="1">
+                android:padding="12dp">
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/verticalGuideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5"/>
+                <!-- TITULO TextView Input Parameters -->
+                <TextView
+                    android:id="@+id/textViewInputParameters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextTitleStyleExp"
+                    android:text="@string/section_input_configuration"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
-        <!-- Contenido de CardView 2 -->
-        <androidx.appcompat.widget.LinearLayoutCompat
+                <!-- RadioButton Constante -->
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioButtonConstante"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/TextSubTitleStyleExp"
+                    android:gravity="center"
+                    android:text="@string/constant_input"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewInputParameters"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"/>
+
+                <!-- RadioButton Senoidal -->
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioButtonSenoidal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/TextSubTitleStyleExp"
+                    android:gravity="center"
+                    android:text="@string/sinusoidal_input"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewInputParameters"
+                    app:layout_constraintStart_toEndOf="@+id/verticalGuideline3"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!-- TextView Input 1 -->
+                <TextView
+                    android:id="@+id/textViewInput1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/editAmplitud"
+                    style="@style/TextSubTitleStyleExp"
+                    android:text="@string/amplitude" />
+
+                <!-- TextInputEditText Input 1 -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editFrecuencia"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@android:color/black"
+
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/verticalGuideline3"
+                    app:layout_constraintTop_toBottomOf="@+id/editAmplitud"
+                    android:hint="0 Hz" />
+
+                <!-- TextView Input 2 -->
+                <TextView
+                    android:id="@+id/textViewInput2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/editFrecuencia"
+                    style="@style/TextSubTitleStyleExp"
+                    android:text="@string/frequency" />
+
+                <!-- TextInputEditText Input 2 -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editAmplitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="@android:color/black"
+
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/verticalGuideline3"
+                    app:layout_constraintTop_toBottomOf="@+id/radioButtonConstante"
+                    android:hint="1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- CardView for Parameters of Control -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_margin="14dp"
-            android:orientation="vertical">
-            <!-- Título de la sección -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_primario"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_marginBottom="16dp"
-                android:gravity="center"
-                android:text="@string/section_input_configuration">
-            </TextView>
-
-
-            <TextView
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="@color/gold"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_primario"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:text="Señal de entrada">
-            </TextView>
-            <TextView
-                android:id="@+id/txtSignal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/gold"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:text="Constante"
-                android:layout_marginBottom="16dp">
-            </TextView>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                android:padding="12dp">
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/verticalGuideline4"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_primario"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:text="A">
-                </TextView>
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5"/>
+                <!-- TITULO TextView Control Strategy -->
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:id="@+id/textViewControlStrategy"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/gold"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:text="1"
-                    android:layout_marginBottom="16dp"
-                    android:id="@+id/txtAmplitud">
-                </TextView>
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    style="@style/TextTitleStyleExp"
+                    android:text="@string/section_control_strategy"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/text_primario"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:text="F">
-                </TextView>
-                <TextView
-                    android:id="@+id/txtFrecuency"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/gold"
-                    android:text="0 Hz"
-                    android:textSize="16sp"
-                    android:gravity="center">
-
-                </TextView>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.cardview.widget.CardView>
-    <!-- CardView 3 -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="@color/background_component"
-        app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_button"
-        app:layout_constraintEnd_toStartOf="@+id/card_view_4"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_view_1"
-        app:layout_constraintVertical_weight="1">
-
-        <!-- Contenido de CardView 3 -->
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_margin="14dp"
-            android:orientation="vertical">
-
-            <!-- Título de la sección -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_primario"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:layout_marginBottom="16dp"
-                android:text="@string/section_control_strategy">
-            </TextView>
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/text_primario"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:text="Kp">
-                </TextView>
+                <!-- TextView Kp -->
                 <TextView
                     android:id="@+id/txtKp"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/gold"
                     android:gravity="center"
-                    android:textSize="16sp"
-                    android:text="1"
-                    android:layout_marginBottom="16dp">
-                </TextView>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
+                    style="@style/TextSubTitleStyleExp"
+                    android:text="@string/proportional_gain"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuideline4"
+                    app:layout_constraintTop_toTopOf="@+id/editKp"/>
+
+                <!-- TextInputEditText Kp -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editKp"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_primario"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:text="Ti">
-                </TextView>
+                    android:layout_marginTop="4dp"
+                    android:textColor="@android:color/black"
+
+                    android:background="@drawable/rounded_edittext_background"
+                    android:hint="1"
+                    android:padding="4dp"
+                    app:layout_constraintStart_toEndOf="@+id/verticalGuideline4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewControlStrategy" />
+
+                <!-- TextView Ti -->
                 <TextView
                     android:id="@+id/txtTi"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/gold"
                     android:gravity="center"
-                    android:textSize="16sp"
-                    android:text="1"
-                    android:layout_marginBottom="16dp">
-                </TextView>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
+                    style="@style/TextSubTitleStyleExp"
+                    android:text="@string/integral_gain"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuideline4"
+                    app:layout_constraintTop_toTopOf="@+id/editTi"/>
+
+                <!-- TextInputEditText Ti -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTi"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_primario"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:text="Td">
-                </TextView>
+                    android:padding="4dp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@android:color/black"
+
+                    android:background="@drawable/rounded_edittext_background"
+                    android:hint="1"
+                    app:layout_constraintStart_toEndOf="@+id/verticalGuideline4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editKp"/>
+
+                <!-- TextView Td -->
                 <TextView
                     android:id="@+id/txtTd"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/gold"
                     android:gravity="center"
-                    android:textSize="16sp"
-                    android:text="1"
-                    android:layout_marginBottom="16dp">
-                </TextView>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
+                    style="@style/TextSubTitleStyleExp"
+                    android:text="@string/derivative_gain"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuideline4"
+                    app:layout_constraintTop_toTopOf="@+id/editTd"/>
+
+                <!-- TextInputEditText Td -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTd"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_primario"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:text="Ts">
-                </TextView>
+                    android:padding="4dp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@android:color/black"
+
+                    android:background="@drawable/rounded_edittext_background"
+                    android:hint="1"
+                    app:layout_constraintStart_toEndOf="@+id/verticalGuideline4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTi"/>
+
+                <!-- TextView Ts -->
                 <TextView
                     android:id="@+id/txtTs"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/gold"
                     android:gravity="center"
-                    android:textSize="16sp"
-                    android:text="0.5"
-                    android:layout_marginBottom="16dp">
-                </TextView>
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    style="@style/TextSubTitleStyleExp"
+                    android:text="@string/ts_control"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuideline4"
+                    app:layout_constraintTop_toTopOf="@+id/editTs"/>
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </androidx.cardview.widget.CardView>
-    <!-- CardView 4 -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="@color/background_component"
-        app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/card_view_3"
-        app:layout_constraintTop_toBottomOf="@id/card_view_2"
-        app:layout_constraintVertical_weight="1">
-
-        <!-- Contenido de CardView 4 -->
-        <androidx.appcompat.widget.LinearLayoutCompat
+                <!-- TextInputEditText Ts -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/rounded_edittext_background"
+                    android:hint="1"
+                    app:layout_constraintStart_toEndOf="@+id/verticalGuideline4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTd"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+        <Button
+            android:id="@+id/startExperiment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_margin="14dp"
-            android:orientation="vertical">
-            <!-- Título de la sección -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_primario"
-                android:textAllCaps="true"
-                android:layout_margin="4dp"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:text="@string/section_test">
-            </TextView>
+            android:layout_height="80dp"
+            android:text="@string/start_experiment"
+            android:textColor="@color/text_primario"
+            android:textAllCaps="true"
+            android:backgroundTint="@color/red"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.cardview.widget.CardView>
-    <!-- Botón en la parte inferior -->
-    <Button
-        android:id="@+id/bottom_button"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginBottom="10dp"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        android:textSize="25sp"
-        android:backgroundTint="@color/red"
-        android:text="@string/start_experiment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    
+
 
 

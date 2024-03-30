@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--Informacion del experimento local estatica-->
+    <string name="nameExp">nameExp</string>
+    <string name="timeExpLocal">timeExpLocal</string>
+    <string name="refExpLocal">refExpLocal</string>
+    <string name="loopLocal">loopLocal</string>
+    <string name="inputExpLocal">inputExpLocal</string>
+    <string name="inputAmpLocal">inputAmpLocal</string>
+    <string name="inputFrLocal">inputFrLocal</string>
+    <string name="controlKpLocal">controlKpLocal</string>
+    <string name="controlTiLocal">controlTiLocal</string>
+    <string name="controlTdLocal">controlTdLocal</string>
+    <string name="controlTsLocal">1</string>
+
+
+</resources>

@@ -235,7 +235,7 @@
 
     <!--Boton empezar experimento -->
     <Button
-        android:id="@+id/start_experiment"
+        android:id="@+id/startExperiment"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:text="@string/start_experiment"

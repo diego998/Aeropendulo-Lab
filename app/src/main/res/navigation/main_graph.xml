@@ -31,43 +31,10 @@
         android:id="@+id/experimentLocalFragment"
         android:name="com.diego.aeropendulo_lab.ui.experimentLocal.ExperimentLocalFragment"
         android:label="fragment_experiment_local"
-        tools:layout="@layout/fragment_experiment_local" >
-        <action
-            android:id="@+id/action_experimentLocalFragment_to_experimentLocalConfigControlFragment"
-            app:destination="@id/experimentLocalConfigControlFragment" />
-        <action
-            android:id="@+id/action_experimentLocalFragment_to_experimentLocalConfigInputFragment"
-            app:destination="@id/experimentLocalConfigInputFragment" />
-        <action
-            android:id="@+id/action_experimentLocalFragment_to_experimentLocalConfigTestFragment"
-            app:destination="@id/experimentLocalConfigTestFragment" />
-        <action
-            android:id="@+id/action_experimentLocalFragment_to_experimentLocalConfigParameterFragment"
-            app:destination="@id/experimentLocalConfigParameterFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_experiment_local" />
     <fragment
         android:id="@+id/experimentRemoteFragment"
         android:name="com.diego.aeropendulo_lab.ui.experimentRemote.ExperimentRemoteFragment"
         android:label="fragment_experiment_remote"
         tools:layout="@layout/fragment_experiment_remote" />
-    <fragment
-        android:id="@+id/experimentLocalConfigTestFragment"
-        android:name="com.diego.aeropendulo_lab.ui.experimentLocalConfigTest.ExperimentLocalConfigTestFragment"
-        android:label="fragment_experiment_local_config_test"
-        tools:layout="@layout/fragment_experiment_local_config_test" />
-    <fragment
-        android:id="@+id/experimentLocalConfigParameterFragment"
-        android:name="com.diego.aeropendulo_lab.ui.experimentLocalConfigParameter.ExperimentLocalConfigParameterFragment"
-        android:label="fragment_experiment_local_config_parameter"
-        tools:layout="@layout/fragment_experiment_local_config_parameter" />
-    <fragment
-        android:id="@+id/experimentLocalConfigInputFragment"
-        android:name="com.diego.aeropendulo_lab.ui.experimentLocalConfigInput.ExperimentLocalConfigInputFragment"
-        android:label="fragment_experiment_local_config_input"
-        tools:layout="@layout/fragment_experiment_local_config_input" />
-    <fragment
-        android:id="@+id/experimentLocalConfigControlFragment"
-        android:name="com.diego.aeropendulo_lab.ui.experimentLocalConfigControl.ExperimentLocalConfigControlFragment"
-        android:label="fragment_experiment_local_config_control"
-        tools:layout="@layout/fragment_experiment_local_config_control" />
 </navigation>

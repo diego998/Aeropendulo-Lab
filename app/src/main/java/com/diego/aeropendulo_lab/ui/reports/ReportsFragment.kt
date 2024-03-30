@@ -5,12 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.diego.aeropendulo_lab.databinding.FragmentReportsBinding
-import com.diego.aeropendulo_lab.ui.experimentLocal.ExperimentLocalFragment
-import com.diego.aeropendulo_lab.ui.experimentRemote.ExperimentRemoteFragment
-import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

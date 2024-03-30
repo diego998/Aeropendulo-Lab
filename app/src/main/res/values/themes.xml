@@ -27,7 +27,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/text_secundario</item> <!-- Color del texto secundario -->
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:ems">8</item>
         <item name="android:inputType">numberDecimal</item> <!-- Tipo de entrada: número -->
         <item name="android:background">@color/white</item> <!-- Fondo transparente -->
@@ -36,6 +36,22 @@
         <item name="android:paddingBottom">8dp</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingEnd">8dp</item>
+    </style>
+
+<!-- Estilo de titulos en exp-->
+    <style name="TextTitleStyleExp">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Estilo de Subtitulos en exp-->
+    <style name="TextSubTitleStyleExp">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
     </style>
 
 
