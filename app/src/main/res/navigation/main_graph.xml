@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_experimentFragment_to_experimentLocalFragment"
             app:destination="@id/experimentLocalFragment" />
+        <action
+            android:id="@+id/action_experimentFragment_to_executeActivity"
+            app:destination="@id/executeActivity" />
     </fragment>
     <fragment
         android:id="@+id/experimentLocalFragment"
@@ -37,4 +40,9 @@
         android:name="com.diego.aeropendulo_lab.ui.experimentRemote.ExperimentRemoteFragment"
         android:label="fragment_experiment_remote"
         tools:layout="@layout/fragment_experiment_remote" />
+    <activity
+        android:id="@+id/executeActivity"
+        android:name="com.diego.aeropendulo_lab.ui.execute.ExecuteActivity"
+        android:label="activity_execute"
+        tools:layout="@layout/activity_execute" />
 </navigation>

@@ -38,8 +38,6 @@
     <string name="bottom_exp_save">Guardar</string>
 
 
-
-
     <string name="constant_input">Constante</string>
     <string name="sine_input">Senoidal</string>
     <string name="amplitude">Amplitud:</string>
@@ -49,9 +47,6 @@
     <string name="hint_td">Valor de Td</string>
     <string name="hint_ts">Valor de Ts</string>
     <string name="sinusoidal_input">Senoidal</string>
-
-
-
 
 
 </resources>
