@@ -6,6 +6,7 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.util.Log
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 import kotlin.math.abs
 
@@ -21,7 +22,7 @@ class SensorPitch @Inject constructor(private val context: Context) : SensorEven
     private lateinit var mMagnetometerData: FloatArray
 
 
-    private val valueDrift = 0.05f
+    private val valueDrift = 0.01f
     private var pitchValue: Float = 0f
 
     init {
@@ -39,7 +40,7 @@ class SensorPitch @Inject constructor(private val context: Context) : SensorEven
         mMagnetometerData = FloatArray(3)
     }
 
-    fun getPitchValue(): Float {
+    fun getPitchValue(calibracion: Float): Float {
         // Aquí se implementaría la lógica para obtener y calcular el valor del ángulo de pitch
         // utilizando SensorManager.getRotationMatrix() y SensorManager.getOrientation()
         // Luego, retoma el valor del ángulo de pitch calculado
@@ -63,7 +64,9 @@ class SensorPitch @Inject constructor(private val context: Context) : SensorEven
             roll = 0f
         }
 
-        pitchValue = Math.toDegrees(pitch.toDouble()).toFloat()
+        pitchValue = Math.toDegrees(pitch.toDouble()).toFloat() + 90f - calibracion
+
+
         Log.d("VALOR SENSOR",pitchValue.toString())
 
         return pitchValue // Este es solo un valor de ejemplo, debes reemplazarlo con tu lógica real de cálculo de ángulo
@@ -87,12 +90,12 @@ class SensorPitch @Inject constructor(private val context: Context) : SensorEven
         sensorManager.registerListener(
             this,
             mSensorAccelerometer,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_FASTEST
         )
         sensorManager.registerListener(
             this,
             mSensorMagnetometer,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_FASTEST
         )
     }
 
