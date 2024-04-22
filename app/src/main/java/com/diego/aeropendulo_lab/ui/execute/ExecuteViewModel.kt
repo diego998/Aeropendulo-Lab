@@ -23,6 +23,7 @@ class ExecuteViewModel @Inject constructor(private val sensorPitch: SensorFusion
 
 
     private var isListening = false
+    var elapsedTime: Long = 0L // Tiempo transcurrido
     private var calibrationValue: Float = 0f
 
     fun resumeSensor() {
@@ -37,23 +38,21 @@ class ExecuteViewModel @Inject constructor(private val sensorPitch: SensorFusion
     fun getSensor(time: Long) {
         viewModelScope.launch {
             _state.value = ExecuteState.TapState
-            var elapsedTime = 0L // Tiempo transcurrido
             withContext(Dispatchers.IO) {
-                while (elapsedTime < time) { // Continuar mientras no hayan pasado 60 segundos
+                while (elapsedTime < time) {
                     val result = withContext(Dispatchers.IO) {
                         sensorPitch.getPitchValue(calibrationValue)
                     }
-                    Log.d("primer ciclo", "$elapsedTime y $result")
                     if (isListening) {
-                        elapsedTime = System.currentTimeMillis() - starttime // Calcular el tiempo transcurrido
+                        elapsedTime = System.currentTimeMillis() - starttime
                         measureState(ExecuteState.MeasureState(result, elapsedTime))
                         _state.value = ExecuteState.MeasureState(result, elapsedTime)
                     }
                     kotlinx.coroutines.delay(5)
                 }
                 isListening = false
-                _state.value = ExecuteState.FinishState(measurements)
             }
+            _state.value = ExecuteState.FinishState(measurements)
         }
     }
 
@@ -61,6 +60,11 @@ class ExecuteViewModel @Inject constructor(private val sensorPitch: SensorFusion
 
     fun setCalibration() {
         calibrationValue = sensorPitch.getPitchValue(0f)
+    }
+    fun setRepeat() {
+        measurements.clear()
+        elapsedTime = 0L
+        _state.value = ExecuteState.TapState
     }
 
     fun setStartTime(){

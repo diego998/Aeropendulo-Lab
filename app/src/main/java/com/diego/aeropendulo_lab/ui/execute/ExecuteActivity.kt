@@ -119,6 +119,7 @@ class ExecuteActivity : AppCompatActivity() {
 
         // Configurar el listener del botón de repetir
         binding.repeatButton.setOnClickListener {
+            executeViewModel.setRepeat()
             // Aquí puedes implementar la lógica para repetir el experimento
             // Por ejemplo, restablecer la actividad o cualquier otra acción necesaria para iniciar un nuevo experimento
         }
